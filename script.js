@@ -1,15 +1,7 @@
 const style = 'font-weight: bold; font-size: 30px;color: red; text-shadow: 1px 1px 0 yellow';
-const styleYellow = 'color: yellow';
-const styleGreen = 'color: green';
-const styleRed = 'color: red';
-
-
-
 
 let computerScore = 0;
 let userScore = 0;
-
-
 
 
 function computerPlay () {
@@ -23,7 +15,7 @@ function computerPlay () {
         return "scissors";
 
     }
-}
+};
 
 function playRound() {
     computer = computerPlay().toLowerCase();
@@ -33,11 +25,11 @@ function playRound() {
     p = "✅ Player wins! "
     d = "🟨 Draw"
 
-    console.log("Copmuter choose " + computer + ".");
-    console.log("You Choose " + player + ". \n");
+    console.log("Copmuter choos e " + computer + ".");
+    console.log("You choose " + player + ". \n");
 
     if (player === computer) {
-        return `${d}\n PC: ${computerScore}\n\n You: ${userScore}`
+        return `${d}\n PC: ${computerScore}.\n\n You: ${userScore}`
     }
 
     if (
@@ -46,7 +38,7 @@ function playRound() {
     (player === 'paper' && computer === 'rock')
     ) {
     userScore++
-    return p + `${player} beats ${computer}\n\n PC: ${computerScore}\n You: ${userScore}`
+    return p + `${player} beats ${computer}.\n\n PC: ${computerScore}\n You: ${userScore}`
     }
     if (
     (computer === 'rock' && player === 'scissors') ||
@@ -54,13 +46,12 @@ function playRound() {
     (computer === 'paper' && player === 'rock')
     ) {
     computerScore++
-    return c + `${computer} beats ${player}\n\n PC: ${computerScore}\n You: ${userScore}`
-
+    return c + `${computer} beats ${player}.\n\n PC: ${computerScore}\n You: ${userScore}`
     }
-}
+};
 
 function game () {
-    let NumberOfRounds = prompt("HOW many rounds do you want to play?", 5);
+    let NumberOfRounds = prompt("How many rounds do you want to play?", 3);
     for (let i = 0; i < NumberOfRounds; i++) {
         let result = playRound();
         if (typeof result == "undefined"){
@@ -70,8 +61,6 @@ function game () {
         console.log(result);
         }
     }
-
-    
     if (userScore > computerScore) {
         console.log("%c You win and have " + userScore + " points. You are good!", style);
     } else if (computerScore > userScore) {
@@ -80,11 +69,7 @@ function game () {
         console.log ("%cNobody wins. Try again!", style);
         
     }
-}
-
-
-
-// console.log(playRound(playerSelection));
+};
 
 
 console.log(game());
