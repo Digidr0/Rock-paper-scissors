@@ -71,5 +71,7 @@ function game () {
         
     }
 };
-
-console.log(game());
+function timeout() {
+    console.log(game());
+  }
+  setTimeout(timeout, 1000);
