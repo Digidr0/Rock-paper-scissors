@@ -1,9 +1,9 @@
-const style = 'font-weight: bold; font-size: 30px;color: red; text-shadow: 1px 1px 0 yellow';
+const style = 'font-weight: bold; font-size: 20px;color: red; text-shadow: 1px 1px 0 yellow';
 
 let computerScore = 0;
 let userScore = 0;
 
-
+//Create a random number and return paper rock or scissors
 function computerPlay () {
     let random = Math.floor(Math.random() * 3);
     // console.log(random);
@@ -16,20 +16,21 @@ function computerPlay () {
 
     }
 };
-
+//Compare computer сhoice and user choise, and compare them
+//Return "computer" win, "player win" or "draw"
 function playRound() {
     computer = computerPlay().toLowerCase();
-    player = prompt("Choose \"Paper\", \"Rock\" or \"Scissors\"").toLowerCase();
+    player = prompt("Choose \"Paper\", \"Rock\" or \"Scissors\"", "Paper").toLowerCase();
 
     c = "❌ Computer wins! "
-    p = "✅ Player wins! "
+    p = "✅ You wins! "
     d = "🟨 Draw"
 
-    console.log("Copmuter choos e " + computer + ".");
-    console.log("You choose " + player + ". \n");
+    console.log("Copmuter choose a " + computer + ".");
+    console.log("You choose a " + player + ". \n");
 
     if (player === computer) {
-        return `${d}\n PC: ${computerScore}.\n\n You: ${userScore}`
+        return `${d}\n\n PC: ${computerScore}.\n You: ${userScore}`
     }
 
     if (
@@ -49,7 +50,7 @@ function playRound() {
     return c + `${computer} beats ${player}.\n\n PC: ${computerScore}\n You: ${userScore}`
     }
 };
-
+//cycle a prompt times function "playRound" and choose a winner or draw
 function game () {
     let NumberOfRounds = prompt("How many rounds do you want to play?", 3);
     for (let i = 0; i < NumberOfRounds; i++) {
@@ -64,12 +65,11 @@ function game () {
     if (userScore > computerScore) {
         console.log("%c You win and have " + userScore + " points. You are good!", style);
     } else if (computerScore > userScore) {
-        console.log ("%c Computer wins and have " + computerScore + " points. Trying harder!", style);
+        console.log ("%c Computer wins and has " + computerScore + " points. Trying harder!", style);
     } else {
         console.log ("%cNobody wins. Try again!", style);
         
     }
 };
-
 
 console.log(game());
