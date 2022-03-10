@@ -74,4 +74,6 @@ function game () {
 function timeout() {
     console.log(game());
   }
-  setTimeout(timeout, 1000);
+//   setTimeout(timeout, 1000);
+
+document.addEventListener('DOMContentLoaded', () => console.log(game()));
