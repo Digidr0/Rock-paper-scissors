@@ -1,7 +1,31 @@
-const style = 'font-weight: bold; font-size: 20px;color: red; text-shadow: 1px 1px 0 yellow';
 
 let computerScore = 0;
 let userScore = 0;
+const numberOfRounds = 5;
+
+const buttons = document.querySelectorAll('input');
+
+const pcChoise =  document.querySelector('.pc-choise');
+
+const resultsContainer = document.querySelector('.results');
+const resultDiv = document.createElement('h2');
+resultDiv.setAttribute('id', 'round-result')
+resultsContainer.appendChild(resultDiv);
+
+
+const pointsContainer = document.querySelector('.points');
+const pointUser = document.createElement('p');
+const pointPC = document.createElement('p');
+resultsContainer.appendChild(pointPC);
+resultsContainer.appendChild(pointUser);
+
+const winner = document.querySelector('.winner');
+
+
+
+
+
+
 
 //Create a random number and return paper rock or scissors
 function computerPlay () {
@@ -18,28 +42,41 @@ function computerPlay () {
 };
 //Compare computer сhoice and user choise, and compare them
 //Return "computer" win, "player win" or "draw"
-function playRound() {
-    computer = computerPlay().toLowerCase();
-    player = prompt("Choose \"Paper\", \"Rock\" or \"Scissors\"", "Paper").toLowerCase();
+function playRound(player) {
+    computer = computerPlay();
+    player = player.toLowerCase();
+
 
     c = "❌ Computer wins! "
     p = "✅ You wins! "
     d = "🟨 Draw"
 
-    console.log("Copmuter choose a " + computer + ".");
-    console.log("You choose a " + player + ". \n");
+    // console.log("Copmuter choose a " + computer + ".");
+    // console.log("You choose a " + player + ". \n");
+    pcChoise.textContent = ("Copmuter choose a " + computer + ".");
 
-    if (player === computer) {
-        return `${d}\n\n PC: ${computerScore}.\n You: ${userScore}`
-    }
 
-    if (
+
+
+
+ if (player === computer) {
+        resultDiv.textContent = (`${d}`);
+        resultDiv.removeAttribute('class')
+        resultDiv.setAttribute('class', 'yellow');
+    }else if (
     (player === 'rock' && computer === 'scissors') ||
     (player === 'scissors' && computer === 'paper') ||
     (player === 'paper' && computer === 'rock')
     ) {
     userScore++
-    return p + `${player} beats ${computer}.\n\n PC: ${computerScore}\n You: ${userScore}`
+    resultDiv.textContent = (p + `${player} beats ${computer}.`);
+    resultDiv.removeAttribute('class')
+    resultDiv.setAttribute('class', 'green');
+        if(userScore == numberOfRounds) {
+        winner.textContent = "User wins!";
+        
+
+        }
     }
     if (
     (computer === 'rock' && player === 'scissors') ||
@@ -47,8 +84,16 @@ function playRound() {
     (computer === 'paper' && player === 'rock')
     ) {
     computerScore++
-    return c + `${computer} beats ${player}.\n\n PC: ${computerScore}\n You: ${userScore}`
+    resultDiv.textContent = (c + `${computer} beats ${player}.`);
+    resultDiv.removeAttribute('class')
+    resultDiv.setAttribute('class', 'red');
+        if(computerScore == numberOfRounds) {
+        winner.textContent = "computer wins!";
+        }
+
     }
+    pointUser.textContent = `You: ${userScore}`;
+    pointPC.textContent = `Computer: ${computerScore}`;
 };
 //cycle a prompt times function "playRound" and choose a winner or draw
 function game () {
@@ -71,9 +116,24 @@ function game () {
         
     }
 };
-function timeout() {
-    console.log(game());
-  }
-//   setTimeout(timeout, 1000);
+function halo (){
+    console.log("hui");
+}
 
-document.addEventListener('DOMContentLoaded', () => console.log(game()));
+function toggleSelection(e) {
+    buttons.forEach(remove =>{
+        console.log(remove);
+        this.ClassList.remove('selection');
+    })
+    e.ClassList.add('selection');
+
+}
+
+buttons.forEach(button =>{
+    button.addEventListener('click', function(){
+        playRound(button.value);
+        toggleSelection(this);
+
+
+    })
+})

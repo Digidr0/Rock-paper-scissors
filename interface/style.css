@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'geometria';
+
+    /* border: 1px solid red; */
+}
+body {
+background-color: indianred;
+
+
+}
+
+.top-bar {
+    background:linear-gradient(to right,blueviolet, rgb(255, 107, 21));
+    margin: 0;
+    padding: 15px;
+    border-bottom: solid white 2px;
+}
+.top-bar > h1 {
+    text-align: center;
+    color: white;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 15px;
+}
+input, button {
+    border: 1px white solid;
+    background-color: blueviolet;
+    color: aliceblue;
+    border-radius: 10px;
+    font-size: 2rem;
+    width: 150px;
+    height: auto;
+    cursor: grab;
+    transition: transform 0.2s;
+
+}
+input:hover{
+    transform: scale(1.2);
+}
+
+p {
+    font-size: 3rem;
+}
+
+.winner{
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 1px 1px 0 goldenrod, 3px 3px crimson, 5px 5px darkcyan, 7px 7px blueviolet;
+}
+
+.selection{
+    background-color: darkcyan;
+}
+
+#round-result {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.green {
+    color: hsl(120, 51%, 50%);
+    text-shadow: 3px 3px hsl(120, 51%, 40%)
+}
+
+.red {
+    color:hsl(348, 83%, 50%);
+    text-shadow: 3px 3px hsl(348, 83%, 40%)
+}
+
+.yellow {
+    color: hsl(51, 88%, 50%);
+    text-shadow: 3px 3px hsl(51, 88%, 40%);
+}
