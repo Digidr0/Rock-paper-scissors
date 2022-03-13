@@ -25,7 +25,7 @@ background-color: indianred;
 .btn-container{
     display: flex;
     justify-content: space-around;
-    margin: 15px;
+    margin: 16px;
 }
 input, button {
     border: 1px white solid;

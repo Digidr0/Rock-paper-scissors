@@ -51,7 +51,7 @@ function playRound(player) {
     p = "✅ You wins! "
     d = "🟨 Draw"
 
-    // console.log("Copmuter choose a " + computer + ".");
+    //  console.log("Copmuter choose a " + computer + ".");
     // console.log("You choose a " + player + ". \n");
     pcChoise.textContent = ("Copmuter choose a " + computer + ".");
 
@@ -74,6 +74,7 @@ function playRound(player) {
     resultDiv.setAttribute('class', 'green');
         if(userScore == numberOfRounds) {
         winner.textContent = "User wins!";
+
         
 
         }
