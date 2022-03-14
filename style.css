@@ -1,65 +1,80 @@
+:root {
+    --colorMain: blueviolet;
+    --colorAccent: crimson;
+    --colorAccent2: darkcyan;
+    --colorAccent3: white;
+  }
 * {
     margin: 0;
     padding: 0;
     font-family: 'geometria';
 
     /* border: 1px solid red; */
+    color: var(--colorAccent3);
 }
 body {
-background-color: indianred;
+background-color: var(--colorMain);
 
 
 }
 
 .top-bar {
-    background:linear-gradient(to right,blueviolet, rgb(255, 107, 21));
+    background:linear-gradient(to right, var(--colorMain), var(--colorAccent));
     margin: 0;
     padding: 15px;
-    border-bottom: solid white 2px;
+    border-bottom: solid var(--colorAccent3) 2px;
 }
 .top-bar > h1 {
     text-align: center;
-    color: white;
+    color: var(--colorAccent3);
 }
 
 .btn-container{
     display: flex;
     justify-content: space-around;
-    margin: 16px;
 }
 input, button {
-    border: 1px white solid;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    height: 75px;
+
+    border: none;
+    border-bottom: var(--colorAccent3) 2px solid;
     background-color: blueviolet;
-    color: aliceblue;
-    border-radius: 10px;
+    color: var(--colorAccent3);
     font-size: 2rem;
-    width: 150px;
-    height: auto;
-    cursor: grab;
-    transition: transform 0.2s;
+    
+    cursor: pointer;
+    transition: 0.4s;
 
 }
-input:hover{
-    transform: scale(1.2);
+button:hover{
+    background-color: var(--colorAccent2);
 }
 
 p {
     font-size: 3rem;
+    margin: 15px;
 }
 
-.winner{
+.winner {
     font-size: 3rem;
     text-align: center;
-    text-shadow: 1px 1px 0 goldenrod, 3px 3px crimson, 5px 5px darkcyan, 7px 7px blueviolet;
+    color: var(--colorAccent3);
+    text-shadow: 2px 2px var(--colorAccent);
+    
+    
 }
 
-.selection{
-    background-color: darkcyan;
-}
 
-#round-result {
+
+#round-result, .pc-choise {
     text-align: center;
     font-size: 3rem;
+    margin: 15px;
 }
 
 .green {

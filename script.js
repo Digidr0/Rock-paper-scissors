@@ -3,7 +3,17 @@ let computerScore = 0;
 let userScore = 0;
 const numberOfRounds = 5;
 
-const buttons = document.querySelectorAll('input');
+let toggleIndex = 0;
+const colorMain = 'blueviolet'
+const colorAccent = 'darkcyan'
+const colors = [colorMain, colorAccent];
+
+
+
+const btnRock = document.querySelector('.rock');
+const btnPaper = document.querySelector('.paper');
+const btnScissors = document.querySelector('.scissors');
+const btnAll = document.querySelectorAll('button');
 
 const pcChoise =  document.querySelector('.pc-choise');
 
@@ -117,24 +127,24 @@ function game () {
         
     }
 };
-function halo (){
-    console.log("hui");
-}
 
-function toggleSelection(e) {
-    buttons.forEach(remove =>{
-        console.log(remove);
-        this.ClassList.remove('selection');
-    })
-    e.ClassList.add('selection');
+btnRock.addEventListener('click', function onClick1() {
+    playRound('rock');
+    btnPaper.style.backgroundColor = colors[0];
+    btnScissors.style.backgroundColor = colors[0];
+    btnRock.style.backgroundColor = colors[1];
+  });
 
-}
+  btnPaper.addEventListener('click', function onClick2() {
+    playRound('paper');
+    btnRock.style.backgroundColor = colors[0];
+    btnScissors.style.backgroundColor = colors[0];
+    btnPaper.style.backgroundColor = colors[1];
+  });
 
-buttons.forEach(button =>{
-    button.addEventListener('click', function(){
-        playRound(button.value);
-        toggleSelection(this);
-
-
-    })
-})
+  btnScissors.addEventListener('click', function onClick2() {
+    playRound('scissors');
+    btnRock.style.backgroundColor = colors[0];
+    btnPaper.style.backgroundColor = colors[0];
+    btnScissors.style.backgroundColor = colors[1];
+  });
