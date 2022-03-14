@@ -63,7 +63,8 @@ function playRound(player) {
 
     //  console.log("Copmuter choose a " + computer + ".");
     // console.log("You choose a " + player + ". \n");
-    pcChoise.textContent = ("Copmuter choose a " + computer + ".");
+    pcChoise.textContent = "Copmuter choose a " + computer + ".";
+
 
 
 
